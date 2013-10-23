@@ -1,4 +1,12 @@
 Minproj::Application.routes.draw do
+  resources :categories_items
+
+  resources :items_users
+
+  resources :categories
+
+  resources :items
+
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
