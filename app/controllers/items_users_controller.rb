@@ -4,7 +4,12 @@ class ItemsUsersController < ApplicationController
   # GET /items_users
   # GET /items_users.json
   def index
-    @items_users = ItemsUser.all
+ #   @items_users = ItemsUser.all
+    sql = "select items_users.*, items.name as item_name, users.name as user_name
+           from items_users inner join items on items_users.item_id = items.id
+           inner join users on items_users.user_id = users.id limit 100"
+     @name_items_users = ActiveRecord::Base.connection.execute(sql)
+
   end
 
   # GET /items_users/1
