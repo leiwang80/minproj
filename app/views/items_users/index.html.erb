@@ -1,29 +1,26 @@
-<h1>Listing items_users</h1>
+<<h1>Listing items_users</h1>
 
 <table>
   <thead>
     <tr>
-
 	  <th>User</th>
       <th>Item</th>
       <th>Category List</th>
-
-      <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
+<%= paginate @items_users%>
   <tbody>
-
-    <% @name_items_users.each do |items_user| %>
+    <% @items_users.each do |items_user| %>
       <tr>
-        <td><%= link_to items_user["user_name"], user_path(items_user["user_id"]), method: :get %></td>
-        <td><%= items_user["item_name"] %></td>
-		 <td><%=  %></td>
-        <td><%= link_to 'Show', items_user_path(items_user["id"]), method: :get %></td>
-        <td><%= link_to 'Edit', edit_items_user_path(items_user["id"]) %></td>
-        <td><%= link_to 'Destroy', items_user_path(items_user["id"]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to items_user.user.name, user_path(items_user.user), method: :get %></td>
+        <td><%= items_user.item.name %></td>
+        <td><%= items_user.item.category_list %></td>
+        <td><%= link_to 'Show', items_user %></td>
+        <td><%= link_to 'Edit', edit_items_user_path(items_user) %></td>
+        <td><%= link_to 'Destroy', items_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

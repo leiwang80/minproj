@@ -4,8 +4,8 @@ class ItemsUsersController < ApplicationController
   # GET /items_users
   # GET /items_users.json
   def index
-    @name_items_users = ItemsUser.name_all(offset=1, limit=100)
- #   @items_users = ItemsUser.all
+  #  @name_items_users = ItemsUser.name_all(offset=1, limit=100)
+   @items_users = ItemsUser.joins(:user, :item).page(params[:page]).per(50)
 
   end
 

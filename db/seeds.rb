@@ -68,7 +68,7 @@ categories_item_file = File.open(CATEGORIES_ITEMS, 'r')
 while (line = categories_item_file.gets)
   d1, d2 = parse_line(line)
   next if d1.nil? || d1.to_i == 0 ||d2.nil? || d2.to_i == 0
-  CategoriesItem.create(category_id: d1.to_i, item_id: d2.to_i)
+  CategoriesItem.create(item_id: d1.to_i, category_id: d2.to_i)
 end
 categories_item_file.close
 

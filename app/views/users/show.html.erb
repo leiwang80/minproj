@@ -5,5 +5,20 @@
   <%= @user.name %>
 </p>
 
+<p>
+  <strong>Purchased Items:</strong>
+  <% item_names = @purchased_items.collect{ |i| i.name} %>
+  <%= item_names.join(',  ') %>
+</p>
+
+<p>
+  <strong>Suggested Items:</strong>
+  <% suggested = @suggested_items[0..19] %>
+  <% item_names = suggested.collect{ |i| i["name"]} %>
+  <%= item_names.join(',  ') %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
