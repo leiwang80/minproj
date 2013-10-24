@@ -3,9 +3,11 @@
 <table>
   <thead>
     <tr>
+
 	  <th>User</th>
       <th>Item</th>
       <th>Category List</th>
+
       <th></th>
       <th></th>
       <th></th>
@@ -13,6 +15,7 @@
   </thead>
 
   <tbody>
+
     <% @name_items_users.each do |items_user| %>
       <tr>
         <td><%= link_to items_user["user_name"], user_path(items_user["user_id"]), method: :get %></td>

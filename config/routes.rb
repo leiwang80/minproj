@@ -1,6 +1,8 @@
 Minproj::Application.routes.draw do
+
   get "home/index"
   devise_for :admins
+
   resources :categories_items
 
   resources :items_users
@@ -16,6 +18,7 @@ Minproj::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+
   root :to => "home#index"
 
   # Example of regular route:
