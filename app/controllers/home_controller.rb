@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
   def index
-   redirect_to items_users_url
+    if admin_signed_in?
+      redirect_to items_users_url     
+    else
+      render
+    end
+      
   end
 end
