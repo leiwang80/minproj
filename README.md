@@ -1,1 +1,1 @@
-This is a demo of how to seed the data.
+This mini project using ruby on rails.
