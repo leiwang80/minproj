@@ -12,10 +12,12 @@
 </p>
 
 <p>
-  <strong>Suggested Items:</strong>
-  <% suggested = @suggested_items[0..19] %>
-  <% item_names = suggested.collect{ |i| i["name"]} %>
-  <%= item_names.join(',  ') %>
+  <strong>Recommended Items:</strong>
+  <% recommended = @recommended_items[0..19] %>
+
+  <% recommended.each do |item| %>
+	<%= (link_to item["name"], item_path(item["item_id"]), method: :get ) + '   '%>
+  <% end %>
 </p>
 
 

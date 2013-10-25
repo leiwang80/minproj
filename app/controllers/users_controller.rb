@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
       @purchased_items = @user.items
-      @suggested_items = @user.suggested_items
+      @recommended_items = @user.recommended_items
   end
 
   # GET /users/new

@@ -35,12 +35,12 @@ class User < ActiveRecord::Base
           return results
   end
   
-  def suggested_items
+  def recommended_items
     items_ids = items.collect{ |i| i.id }
-    s_items = related_items   
-    s_items.delete_if{ |i| items_ids.include?(i["item_id"]) }
+    r_items = related_items   
+    r_items.delete_if{ |i| items_ids.include?(i["item_id"]) }
     
-    return s_items
+    return r_items
   end
   
 end
