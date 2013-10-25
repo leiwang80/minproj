@@ -24,14 +24,14 @@ class User < ActiveRecord::Base
     
     category_id_list = '(' + category_ids.join(',') + ')'
     
-    sql = "select item_id, items.name, count(item_id) from  
+    sql = "select item_id, items.name, count(*) as count from  
           categories_items inner join items on items.id = categories_items.item_id
           where categories_items.category_id in #{category_id_list}
           group by item_id, items.name"
     
           results = ActiveRecord::Base.connection.execute(sql)
 
-          results.sort!{|a, b| -a["count(item_id)"] <=> -b["count(item_id)"]}
+          results.sort!{|a, b| -a["count"] <=> -b["count"]}
           return results
   end
   
